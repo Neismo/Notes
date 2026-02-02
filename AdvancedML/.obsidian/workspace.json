@@ -1,20 +1,24 @@
 {
   "main": {
-    "id": "03aede3b052ed6c7",
+    "id": "dcb257ff7dd06a6a",
     "type": "split",
     "children": [
       {
-        "id": "9b11f01cfab01a6f",
+        "id": "2f8b27b2368a3de1",
         "type": "tabs",
         "children": [
           {
-            "id": "728b4a20917f4422",
+            "id": "2d6f208f027f7787",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Latent Variable Models.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Latent Variable Models"
             }
           }
         ]
@@ -23,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "cd890b41121c2bf8",
+    "id": "5933c0b990986c39",
     "type": "split",
     "children": [
       {
-        "id": "216d201d8b5c7bce",
+        "id": "81a2f0b7f3c23405",
         "type": "tabs",
         "children": [
           {
-            "id": "cbabf99bae5ce65f",
+            "id": "6b459bf417bb90f1",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +48,7 @@
             }
           },
           {
-            "id": "437344728829097b",
+            "id": "cb57bf4ef080ea25",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +65,7 @@
             }
           },
           {
-            "id": "dba2c3568fb57208",
+            "id": "3a8e2f0318941cf2",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -74,25 +78,25 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 217.50043487548828
   },
   "right": {
-    "id": "df1a60691dfec281",
+    "id": "d628f9012238fd53",
     "type": "split",
     "children": [
       {
-        "id": "687ac8782ed36c91",
+        "id": "642431d96ff0a9dd",
         "type": "tabs",
         "children": [
           {
-            "id": "e6e7ac65daf81e1e",
+            "id": "a97d616e3643a254",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1. Basics & Beta-Binomial Model.md",
+                "file": "Latent Variable Models.md",
                 "collapseAll": false,
-                "extraContext": false,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -100,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 1. Basics & Beta-Binomial Model"
+              "title": "Backlinks for Latent Variable Models"
             }
           },
           {
-            "id": "94b57045137460b7",
+            "id": "e6761ef8e2accb6b",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1. Basics & Beta-Binomial Model.md",
+                "file": "Latent Variable Models.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 1. Basics & Beta-Binomial Model"
+              "title": "Outgoing links from Latent Variable Models"
             }
           },
           {
-            "id": "b1d481bdbcb2d44e",
+            "id": "fac077837fc4821b",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -133,7 +137,7 @@
             }
           },
           {
-            "id": "cea331a5c48ea9e4",
+            "id": "5cfab0e0bd1c60e8",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -147,17 +151,18 @@
             }
           },
           {
-            "id": "4ba4bdf574ebc870",
+            "id": "09f3240e66e1cc90",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
+                "file": "Latent Variable Models.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Latent Variable Models"
             }
           }
         ],
@@ -165,7 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 208.5
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -178,14 +183,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "728b4a20917f4422",
+  "active": "2d6f208f027f7787",
   "lastOpenFiles": [
-    "1. Basics & Beta-Binomial Model.md",
+    "Introduction.md",
+    "Latent Variable Models.md",
     "Templates/MathAlign.md",
     "Templates",
-    "Figures/LessData.png",
-    "Figures/MoreData!.png",
-    "Figures/Dists.png",
-    "Figures"
+    "images/DeepGenerativeModeling.png",
+    "images"
   ]
 }
