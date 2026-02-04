@@ -71,9 +71,12 @@ Decoder:
 	- This is a problem as positional information is *not* encoded
 		- That is why positional encodings are added
 
-## Exercises 3/2:
+# Exercises (3rd February):
 Classification from Transformer Encoder:
 1) Remove decoder from Transformer
-2) Add avgpool (or similar) to Encoder output
+2) Add avg-pool (or similar) to Encoder output
 3) Add simple layer as "decoder"
-4) 
+4) EXTRA) Add a \[CLS\] token and use its output to the linear layer (no avg-pool/ignore other outputs!)
+	1) Take this tokens embedding, ignore all other embeddings and classify based on this (with the linear layer)
+5) EXTRA) Learnable PE
+IMDB movie reviews --> sentiment classification
