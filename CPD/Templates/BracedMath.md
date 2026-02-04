@@ -1,0 +1,1 @@
+\underbrace{formula}_{\text{test}}
