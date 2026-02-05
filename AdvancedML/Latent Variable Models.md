@@ -60,4 +60,54 @@ $$\begin{align}
 In line 4, *Jensen's Inequality* is used. An ==amortized variant== exists which uses $q_\phi(\mathbf{z}|\mathbf{x})$ instead:
 $$ \ln p(\mathbf{x}) \geq \mathbb{E}_{\mathbf{z}\sim q_\phi(\mathbf{z}|\mathbf{x})}[\ln p(\mathbf{x}|\mathbf{z})] - \mathbb{E}_{\mathbf{z}\sim q_\phi(\mathbf{z}|\mathbf{x})}[\ln q_\phi(\mathbf{z|\mathbf{x}}) - p(\mathbf{z})] $$
 
-Amortized variant is very strong, as for a single model, it will also return the parameters of the distribution for the input.
+Amortized variant is very strong, as for a single model, it will also return the parameters of the distribution for the input. As a result, a *stochacstic encoder* $q_\phi(\mathbf{x}|\mathbf{z})$ and *stochastic decoder* $p(\mathbf{x}|\mathbf{z})$. This is also known as **Variational Auto Encoder**. The lower bound of the *log-likelihood function* is called the *Evidence Lower Bound* **ELBO**, it is decomposed as:
+
+$$ \underbrace{\mathbb{E}_{z\sim q_\phi(\mathbf{z})}[\ln p(\mathbf{x}|\mathbf{z})]}_{\text{Reconstruction Error}} - \underbrace{\mathbb{E}_{z\sim q_\phi(\mathbf{z})}[\ln q_\phi(\mathbf{z}) - \ln p(\mathbf{z})]}_{\text{Regularizer}} $$
+
+Where the *reguralizor* part coincides with the **Kullback-Leibler Divergence** (**KL**). 
+
+### ELBO - a problem
+
+ELBO provides a *lower limit* to the log-likelihood function. This is seen from the complete derivation for ELBO (steps not shown, but at page 97):
+
+$$ \ln p(\mathbf{x}) = \underbrace{\mathbb{E}_{\mathbf{z}\sim q_\phi(\mathbf{z}|\mathbf{x})}[\ln p(\mathbf{x}|\mathbf{z})] + KL[q_\phi(\mathbf{z}|\mathbf{x})||p(\mathbf{z})]}_{\text{ELBO}} - \underbrace{KL[q_\phi(\mathbf{z}|\mathbf{x})||p(\mathbf{z}|\mathbf{x}))]}_{\geq 0} $$
+
+The last part is simply a term expressing how well the *stochastic* variational encoder is to the *true* posterior! However, we don't know $p(z|x)$, so we can't evalute the term. We can evaluate the ELBO loss though! Therefore, the last term can be though as the ==gap between the ELBO and *true* log-likelihood==!
+
+In essence, this means that even if we minimize ELBO, if the variational posterier is a bad approximation, we might still have a large gap to the true maximum
+
+![[ELBO-problem.png]]
+
+## Components of VAEs
+
+A class of *amortized* variational encoders $\{q_\phi(\mathbf{z}|\mathbf{x}\}_\phi$ that approximate the *true* posterior $p(\mathbf{z}|\mathbf{x})$. They are seen as **stochastic encoders**. The likelihood can be seen as **stochastic decoders**: $p(\mathbf{x}|\mathbf{z})$. Lastly, the **marginal distribution** $p(\mathbf{z})$, or **prior**, is left. We are also bounded on the objective ELBO:
+$$ \ln p(\mathbf{x}) \geq \mathbb{E}_{\mathbf{z}\sim q_\phi(\mathbf{z}|\mathbf{x})}[\ln p(\mathbf{x}|\mathbf{z})] + KL[q_\phi(\mathbf{z}|\mathbf{x})||p(\mathbf{z})] $$
+1. How we parameterize the distributions?
+2. How do we calculate the expected values? Integrals are still present.
+
+### Parameterization of Distributions
+
+We are free to use ==any distributions we want==, as long as they fit the problem. For images, a *categorical distribution* would fit. In many cases, we can use a neural network, however! With a softmax, that becomes a categorical distribution!
+
+For the *latent variable*, we usually consider it a vector of real values, so a Gaussian is usually chosen. This combines to the fact:
+$$\begin{align}
+q_\phi(\mathbf{z}|\mathbf{x})&= \mathcal{N}\left(\mathbf{z}|\mu_\phi(\mathbf{x}),\text{diag}\left[ \sigma_\phi^2(\mathbf{x}) \right] \right)\\
+p(\mathbf{z}) &= \mathcal{N}(\mathbf{z}|\mathbf{0},\mathbf{I}) \\
+\end{align}$$
+
+Here we can have the neural network output $2M$ outputs, $M$ mean values, and $M$ values for variance $\sigma^2$! That means we consider only *diagonal* variance!
+
+### Reparameterization Trick
+
+There is some variation when we sample for the posterior. We can reduce this variance w.r.t ELBO if we do the reparameterization trick. For the prior above, we can instead de-compose:
+
+$$\mathbf{z}= \mu + \sigma \cdot \epsilon, $$
+
+where $\epsilon\sim\mathcal{N}(\mathbf{0},\mathbf{I})$. When we differentiate this, the variation from the $\epsilon$ term vanishes! We also only need to sample once during training with SGD!
+
+## Potential Problems with VAEs
+
+- *Posterior Collapse*: this happens when the *decoder* just models $\mathbf{z}$.
+- *Hole Problem*: when the aggregated prior $q_\phi(\mathbf{z}) = \frac{1}{N}\sum_n q_\phi(\mathbf{z}|\mathbf{x}_n)$ mismatches the real prior $p(\mathbf{z})$, then there are regions where the prior is high probability, but low for the aggregated (and reverse). This produces low-quality results.
+- *Out-of-distribution Problem*: VAEs often fail to detect out-of-distribution examples. This means, we would expect low probability for out-of-distribution examples, but in practice, it is now like that (funnily enough)
+
