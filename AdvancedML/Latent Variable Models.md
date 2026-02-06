@@ -105,9 +105,110 @@ $$\mathbf{z}= \mu + \sigma \cdot \epsilon, $$
 
 where $\epsilon\sim\mathcal{N}(\mathbf{0},\mathbf{I})$. When we differentiate this, the variation from the $\epsilon$ term vanishes! We also only need to sample once during training with SGD!
 
+$\mu$ and $\sigma$ are outputs from the encoder network.
+
 ## Potential Problems with VAEs
 
 - *Posterior Collapse*: this happens when the *decoder* just models $\mathbf{z}$.
-- *Hole Problem*: when the aggregated prior $q_\phi(\mathbf{z}) = \frac{1}{N}\sum_n q_\phi(\mathbf{z}|\mathbf{x}_n)$ mismatches the real prior $p(\mathbf{z})$, then there are regions where the prior is high probability, but low for the aggregated (and reverse). This produces low-quality results.
+- *Hole Problem*: when the aggregated prior $q_\phi(\mathbf{z}) = \frac{1}{N}\sum_n q_\phi(\mathbf{z}|\mathbf{x}_n)$ mismatches the real prior $p(\mathbf{z})$ then there are regions where the prior is high probability, but low for the aggregated (and reverse). This produces low-quality results.
+- *Unbounded likelihood*: MLE is *ill-posed* for VAEs with Gaussian output densities. Likelihood is unbounded; fixed by *reguralization*, *clamping* the output co-variance
 - *Out-of-distribution Problem*: VAEs often fail to detect out-of-distribution examples. This means, we would expect low probability for out-of-distribution examples, but in practice, it is now like that (funnily enough)
 
+# Exercises
+
+## 1.1)
+Consider probabilistic principal component analysis (PPCA), as described in} section 5.2 of the textbook (Tomczak 2024). The PPCA model has three parameters $\sigma^2 ∈ \mathbb{R}+, \mathbf{b} ∈ \mathbb{R}^D$ and $\mathbf{W} ∈ \mathbb{R}^{D×M}$. Given a data set $\mathcal{D} = \{\mathbf{x}_1,\cdots , \mathbf{x}_N \}$, show that the
+maximum likelihood estimate of $\mathbf{b}$ is the mean of the data set, i.e., ˆb = ¯x. Do this by
+following the steps:
+1) Based on equation $(5.6)$, write the log-likelihood function, $\mathcal{l}(σ^2, \mathbf{b}, \mathbf{W}) = \ln p(\mathcal{D} |σ^2, \mathbf{b}, \mathbf{W}) = \sum^N_{n=1} \ln p(\mathbf{x}_n | σ^2, \mathbf{b}, \mathbf{W})$.
+2) Set the derivative of the log likelihood with respect to $\mathbf{b}$ to 0
+
+Let $\mathbf{C}=\mathbf{W}\mathbf{W}^\top + \sigma^2\mathbf{I}$, then we do the following steps:
+
+$$\begin{align}
+\frac{\text{d}}{\text{d}\mathbf{b}}\ln p(\mathcal{D} |σ^2, \mathbf{b}, \mathbf{W}) &= \frac{\text{d}}{\text{d}\mathbf{b}} \sum^N_{n=1} \ln p(\mathbf{x}_n | σ^2, \mathbf{b}, \mathbf{W}) \\
+&= \sum^N_{n=1} \frac{\text{d}}{\text{d}\mathbf{b}} \ln p(\mathbf{x}_n | σ^2, \mathbf{b}, \mathbf{W}) \\
+&= \sum^N_{n=1} \frac{\text{d}}{\text{d}\mathbf{b}} \ln \frac{\exp\left(-\frac{1}{2}(\mathbf{x}_n-\mathbf{b})^\top\mathbf{C}^{-1}(\mathbf{x}_n-\mathbf{b})\right)}{\sqrt{(2\pi^D|\mathbf{C}|)}} \\
+&= \sum^N_{n=1} \frac{\text{d}}{\text{d}\mathbf{b}}\left[-\frac{1}{2}(\mathbf{x}_n-\mathbf{b})^\top\mathbf{C}^{-1}(\mathbf{x}_n-\mathbf{b}) - \ln \sqrt{(2\pi^D|\mathbf{C}|)} \right] \\
+&= \sum^N_{n=1} \frac{\text{d}}{\text{d}\mathbf{b}}\left[-\frac{1}{2}(\mathbf{x}_n-\mathbf{b})^\top\mathbf{C}^{-1}(\mathbf{x}_n-\mathbf{b}) -0.5\ln(2\pi)^D - 0.5\ln |\mathbf{C}|\right] \\
+&= \sum^N_{n=1} \frac{\text{d}}{\text{d}\mathbf{b}}\left[-\frac{1}{2}(\mathbf{x}_n-\mathbf{b})^\top\mathbf{C}^{-1}(\mathbf{x}_n-\mathbf{b}) -\frac{D}{2}\ln(2\pi) - \frac{1}{2}\ln |\mathbf{C}| \right]\\
+&= \sum^N_{n=1} \frac{\text{d}}{\text{d}\mathbf{b}}\left[-\frac{1}{2}(\mathbf{x}_n-\mathbf{b})^\top\mathbf{C}^{-1}(\mathbf{x}_n-\mathbf{b}) \right] \\
+&= \sum^N_{n=1} -\frac{1}{2}\frac{\text{d}}{\text{d}\mathbf{b}}(\mathbf{x}_n-\mathbf{b})^\top\mathbf{C}^{-1}(\mathbf{x}_n-\mathbf{b}) \\
+&= \sum^N_{n=1} -\frac{1}{2}(-2\mathbf{C}^{-1}(\mathbf{x}_n-\mathbf{b})) \\
+&= \sum^N_{n=1} \mathbf{C}^{-1}(\mathbf{x}_n-\mathbf{b}) \\
+&= \mathbf{C}^{-1}\sum^N_{n=1}(\mathbf{x}_n-\mathbf{b}) \\
+\end{align}$$
+
+Let us now equal this to $0$ and solve for $\mathbf{b}$:
+
+$$\begin{align}
+\mathbf{C}^{-1}\sum^N_{n=1} (\mathbf{x}_n-\mathbf{b}) &= 0 \\
+\mathbf{C}\mathbf{C}^{-1}\sum^N_{n=1} (\mathbf{x}_n-\mathbf{b}) &= \mathbf{C}0 \\
+\sum^N_{n=1}\mathbf{x}_n- \sum^N_{n=1}\mathbf{b} &= 0 \\
+\sum^N_{n=1}\mathbf{x}_n- N\mathbf{b} &= 0 \\
+\sum^N_{n=1}\mathbf{x}_n &= N\mathbf{b} \\
+\frac{\sum^N_{n=1}\mathbf{x}_n}{N} &= \bar{\mathbf{x}} = \mathbf{b} \\
+\end{align}$$
+
+## 1.2) 
+As discussed in section 5.3.1 of the textbook (Tomczak 2024), the second term of the ELBO in equation (5.17), can be written as a KL-divergence, i.e.,
+
+$$\begin{align}
+\text{ELBO}(x) &= \mathbb{E}_{z\sim q_\phi(\mathbf{z})}[\ln p(\mathbf{x}|\mathbf{z})] - \mathbb{E}_{z\sim q_\phi(\mathbf{z|x})}[\ln q_\phi(\mathbf{z|x}) - \ln p(\mathbf{z})] \\
+  &= \mathbb{E}_{z\sim q_\phi(\mathbf{z})}[\ln p(\mathbf{x}|\mathbf{z})] - \text{KL}[q_\phi(\mathbf{z|x})||p(\mathbf{z})]
+\end{align}$$
+
+KL-divergence of density $f(x)$ from density $g(x)$ is defined as
+$$ \text{KL}[f||g] = \int f(x)\ln\frac{f(x)}{g(x)} \text{d}x $$
+When training VAEs, we often use that this KL-divergence has a closed for expression for
+many distributions, e.g., when both the approximate posterior $q_\phi(z|x)$ and the prior
+$p(z)$ are multivariate Gaussian:
+1) Show that the two expressions for the ELBO in equations (8) and (9) are equivalent,
+i.e., that $\mathbb{E}_{z\sim q_\phi(\mathbf{z|x})}[\ln q_\phi(\mathbf{z|x}) - \ln p(\mathbf{z})] = \text{KL}[q_\phi(\mathbf{z|x})||p(\mathbf{z})]$
+$$\begin{align}
+\mathbb{E}_{z\sim q_\phi(\mathbf{z|x})}[\ln q_\phi(\mathbf{z|x}) - \ln p(\mathbf{z})] &= \int q_\phi(\mathbf{z|x}) \cdot (\ln q_\phi(\mathbf{z|x}) - \ln p(\mathbf{z})) \\
+  &= \int q_\phi(\mathbf{z|x})\ln\frac{q_\phi(\mathbf{z|x})}{p(\mathbf{z})} \\
+  &= \text{KL}[q_\phi(\mathbf{z|x})||p(\mathbf{z})]
+\end{align}$$
+2) Show that the KL divergence between two univariate Gaussian distributions has
+the following closed form:
+$$ \text{KL}\left[ \mathcal{N}(\mu_1,\sigma_1^2)||\mathcal{N}(\mu_2,\sigma_2^2) \right] = \ln\frac{\sigma_2}{\sigma^1}+\frac{\sigma_1^2+(\mu_1-\mu_2)^2}{2\sigma_2^2} - \frac{1}{2}$$
+
+I will do so; first let $f(x)\sim\mathcal{N}(\mu_1,\sigma_1^2)$ and $g(x)\sim \mathcal{N}(\mu_2,\sigma_2^2)$. In the derivation, I use the fact that the expectation of one gaussian around another is given by:
+$$ \mathbb{E}[(X-c)^2] = \text{Var}(X) + (\mathbb{E}[X]-c)^2 $$
+
+$$\begin{align}
+\text{KL}\left[ f(x)||g(x) \right] &= \int f(x)\ln\frac{f(x)}{g(x)} \text{d}x \\
+  &= \int f(x)\cdot(\ln f(x) - \ln g(x)) \\
+  &= \int f(x)\cdot\ln f(x) - \int f(x)\cdot\ln g(x)) \\
+  &= \mathbb{E}_{f}[\ln f(x)]-\mathbb{E}_f[\ln g(x)] \\
+  &= \mathbb{E}_{f}\left[\ln\left(\frac{1}{\sqrt{2\pi\sigma_1^2}}\right) -\frac{(x-\mu_1)^2}{2\sigma_1^2} \right] - \mathbb{E}_{f}\left[\ln\left(\frac{1}{\sqrt{2\pi\sigma_2^2}}\right) -\frac{(x-\mu_2)^2}{2\sigma_2^2} \right] \\
+  &= \left(\ln\left(\frac{1}{\sqrt{2\pi\sigma_1^2}}\right) - \mathbb{E}_{f}\left[ \frac{(x-\mu_1)^2}{2\sigma_1^2} \right]\right) - \left(\ln\left(\frac{1}{\sqrt{2\pi\sigma_2^2}}\right) - \mathbb{E}_{f}\left[\frac{(x-\mu_2)^2}{2\sigma_2^2} \right]\right) \\
+  &= \left(\ln\left(\frac{1}{\sqrt{2\pi\sigma_1^2}}\right) - \frac{1}{2}\right) - \left(\ln\left(\frac{1}{\sqrt{2\pi\sigma_2^2}}\right) - \mathbb{E}_{f}\left[\frac{(x-\mu_2)^2}{2\sigma_2^2} \right]\right) \\
+  &= \left(-0.5\ln2\pi\sigma_1^2 - \frac{1}{2}\right) - \left(-0.5\ln 2\pi\sigma_2^2 - \mathbb{E}_{f}\left[\frac{(x-\mu_2)^2}{2\sigma_2^2} \right]\right) \\
+  &= \left(-0.5\ln2\pi\sigma_1^2 - \frac{1}{2}\right) - \left(-0.5\ln 2\pi\sigma_2^2 - \frac{\sigma_1^2 + (\mu_1-\mu_2)^2}{2\sigma_2^2}\right) \\
+  &= -0.5\ln2\pi\sigma_1^2 - \frac{1}{2} + 0.5\ln 2\pi\sigma_2^2 + \frac{\sigma_1^2 + (\mu_1-\mu_2)^2}{2\sigma_2^2} \\
+  &= 0.5(\ln 2\pi\sigma_2^2 - \ln2\pi\sigma_1^2) - \frac{1}{2} + \frac{\sigma_1^2 + (\mu_1-\mu_2)^2}{2\sigma_2^2} \\
+  &= \ln2\pi\sigma_2 - \ln2\pi\sigma_1 - \frac{1}{2} + \frac{\sigma_1^2 + (\mu_1-\mu_2)^2}{2\sigma_2^2} \\
+  &= \ln\frac{2\pi\sigma_2}{2\pi\sigma_1} - \frac{1}{2} + \frac{\sigma_1^2 + (\mu_1-\mu_2)^2}{2\sigma_2^2} \\
+  &= \ln\frac{\sigma_2}{\sigma_1} + \frac{\sigma_1^2 + (\mu_1-\mu_2)^2}{2\sigma_2^2} - \frac{1}{2}
+\end{align}$$
+## 1.3)
+Consider the two-level hierarchical VAE, as described in section 5.5 of the textbook (Tomczak 2024). For this model, we can write the log marginal distribution as:
+$$ \ln p(\mathbf{x}) = \ln\int\int p(\mathbf{x}|\mathbf{z_1})p(\mathbf{z}_1|\mathbf{z}_2)p(\mathbf{z}_2) \text{ d}\mathbf{z}_1\text{d}\mathbf{z_2}. $$
+Following a sequence of steps similar to equations (5.11) to (5.16) in the textbook, first
+show that the ELBO for the two-level hierarchical VAE can be written:
+$$\begin{align}
+\ln p(\mathbf{x}) &= \ln\int\int p(\mathbf{x}|\mathbf{z_1})p(\mathbf{z}_1|\mathbf{z}_2)p(\mathbf{z}_2) \text{ d}\mathbf{z}_1\text{d}\mathbf{z_2} \\
+&= \ln\int\int \frac{q_\phi(\mathbf{z}_1,\mathbf{z}_2)}{q_\phi(\mathbf{z}_1,\mathbf{z}_2)}p(\mathbf{x}|\mathbf{z_1})p(\mathbf{z}_1|\mathbf{z}_2)p(\mathbf{z}_2) \text{ d}\mathbf{z}_1\text{d}\mathbf{z_2} \\
+&= \ln\mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\frac{p(\mathbf{x}|\mathbf{z_1})p(\mathbf{z}_1|\mathbf{z}_2)p(\mathbf{z}_2)}{q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\right] \\
+&\geq \mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\ln\left[\frac{p(\mathbf{x}|\mathbf{z_1})p(\mathbf{z}_1|\mathbf{z}_2)p(\mathbf{z}_2)}{q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\right]\\
+&= \mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln p(\mathbf{x}|\mathbf{z_1}) +\ln p(\mathbf{z}_1|\mathbf{z}_2) + \ln p(\mathbf{z}_2) - \ln q_\phi(\mathbf{z}_1,\mathbf{z}_2)\right]\\
+&= \mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln p(\mathbf{x}|\mathbf{z_1}) +\ln p(\mathbf{z}_1|\mathbf{z}_2) + \ln p(\mathbf{z}_2) - \ln q_\phi(\mathbf{z}_1|x)-\ln q_\phi(\mathbf{z}_2|z_1)\right]\\
+&= \mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln p(\mathbf{x}|\mathbf{z_1}) + (\ln p(\mathbf{z}_1|\mathbf{z}_2)- \ln q_\phi(\mathbf{z}_1|x)) + (\ln p(\mathbf{z}_2) -\ln q_\phi(\mathbf{z}_2|z_1))\right]\\
+&= \mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}[\ln p(\mathbf{x}|\mathbf{z_1})] -\mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln \frac{q_\phi(\mathbf{z}_1|x)}{p(\mathbf{z}_1|\mathbf{z}_2)}\right] - \mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln\frac{q_\phi(\mathbf{z}_2|z_1)}{p(\mathbf{z}_2)} \right]\\
+&= \mathbb{E}_{z_1\sim q_\phi(\mathbf{z}_1)}[\ln p(\mathbf{x}|\mathbf{z_1})] -\mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln \frac{q_\phi(\mathbf{z}_1|x)}{p(\mathbf{z}_1|\mathbf{z}_2)}\right] - \mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln\frac{q_\phi(\mathbf{z}_2|z_1)}{p(\mathbf{z}_2)} \right]\\
+&= \mathbb{E}_{z_1\sim q_\phi(\mathbf{z}_1|x)}[\ln p(\mathbf{x}|\mathbf{z_1})] -\mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln \frac{q_\phi(\mathbf{z}_1|x)}{p(\mathbf{z}_1|\mathbf{z}_2)}\right] - \mathbb{E}_{z_1\sim q_\phi(\mathbf{z}_1|x)}\left[\mathbb{E}_{z_2\sim q_\phi(\mathbf{z}_2|\mathbf{z}_1)}\left[\ln\frac{q_\phi(\mathbf{z}_2|z_1)}{p(\mathbf{z}_2)} \right]\right]\\
+&= \mathbb{E}_{z_1\sim q_\phi(\mathbf{z}_1|x)}[\ln p(\mathbf{x}|\mathbf{z_1})] -\mathbb{E}_{z_1,z_2\sim q_\phi(\mathbf{z}_1,\mathbf{z}_2)}\left[\ln \frac{q_\phi(\mathbf{z}_1|x)}{p(\mathbf{z}_1|\mathbf{z}_2)}\right] - \mathbb{E}_{z_1\sim q_\phi(\mathbf{z}_1|x)}\left[\text{KL}[q_\phi(\mathbf{z}_2|z_1)||p(\mathbf{z}_2)]\right]\\
+\end{align}$$
+Using that it's a bottom up approach so $q_\phi(z_1,z_2|x)=q_\phi(z_2|z_1)q_\phi(z_1|x)$.
