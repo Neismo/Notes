@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Latent Variable Models.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -185,11 +185,11 @@
   },
   "active": "fa3c6ace992c697c",
   "lastOpenFiles": [
-    "Templates/NormalPDF.md",
+    "Templates/BracedMath.md",
     "Latent Variable Models.md",
+    "Templates/NormalPDF.md",
     "images/ELBO-problem.png",
     "Pasted image 20260204204448.png",
-    "Templates/BracedMath.md",
     "Introduction.md",
     "Templates/MathAlign.md",
     "Templates",
