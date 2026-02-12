@@ -1,4 +1,4 @@
-
+	
 # Flows for Continuous Random Variables
 
 We consider a new way to model $p(\mathbf{x})$
@@ -67,6 +67,8 @@ Importantly, the logarithm of the Jacobian becomes easy:
 $$ \mathbf{J}=\begin{bmatrix} \mathbf{I}_{d\times d} & \mathbf{0}_{d\times(D-d)} \\ \frac{\partial\mathbf{y}_b}{\partial\mathbf{x}_a} & \text{diag}(\exp(s(\mathbf{x}_a))) \end{bmatrix},\quad \det(\mathbf{J}) = \prod_{j=1}^{D-d}\exp(s(\mathbf{x}_a))_j = \exp\left(\sum_{j=1}^{D-d}s(\mathbf{x}_a)_j\right) $$
 ^JacobianFormulation
 
+The smart thing about the above Jacobian formulation, is despite the lower-left part $\frac{\partial y_b}{\partial x_a}$ is not trivial, because it is a *lower-triangle* we only need the *diagonal* for the determinant!
+
 This transformation only processes around *d/D* parts of the input though! The other part are *permutation layers*:
 
 ### Permutation Layers
@@ -91,3 +93,41 @@ As alluded to earlier, the first term can be considered an MSE term; here is why
 $$ \ln \mathcal{N}(\mathbf{z}_0=f^{-1}(\mathbf{x})|0,\mathbf{I}) = \text{const} - \frac{1}{2}||f^{-1}(\mathbf{x})-0||^2,\quad\quad \frac{1}{2}||f^{-1}(\mathbf{x})-0||^2 = MSE(0,f^{-1}(\mathbf{x}))$$
 
 When coding, for the Jacobian, we must remember to output *both the* output, but also the outcome of the *scaling layer* too, as it is used in the sum!
+
+
+# Exercises
+
+## 1) Linear Transformations are Volume-Preserving
+_Consider a linear transformation $f : \mathbb{R}^D \rightarrow \mathbb{R}^D$ given by $f(\mathbf{x}) = −\mathbf{x} + \mathbf{a}$ for some $\mathbf{a} ∈ \mathbb{R}^D$. Show that this transformation is volume-preserving, c.f., section 4.1.1 of the textbook._
+**Answer:** to show this is *volume-preserving*, we must calculate the *determinant* of the Jacobian for the *inverse function*:
+$$ \mathbf{J}_{f^{-1}} = \begin{bmatrix} \frac{\partial f^{-1}_1}{\partial x_1} & \cdots & \frac{\partial f^{-1}_1}{\partial x_D} \\ \vdots & \ddots & \vdots \\ \frac{\partial f^{-1}_D}{\partial x_1} & \cdots & \frac{\partial f^{-1}_D}{\partial x_D} \end{bmatrix}. $$
+The inverse function is $f^{-1}(x)$ is actually itself! See $f^{-1}(f(x))=-(-x + a)+a = x-a+a=x$. It's Jacobian is also simple, as it is:
+ $$ \mathbf{J}_{f^{-1}} = -\mathbf{I}_D, $$
+ That is because we take the $(i,j)$'th entry to be $\frac{\partial f_i}{x_j}$ which is $1$ when $i=j$ and $0$ otherwise!
+ The absolute value of the determinant of this is always equal to 1 of course!
+
+## 2) Inverse of Sequence of Invertible Functions
+Let $F(\mathbf{x}) = f_K\circ f_{K−1}\circ\cdots\circ f_2\circ f_1(\mathbf{x})$, where $f_k : \mathbb{R}^D \rightarrow \mathbb{R}^D$ for $k = 1,\cdots, K$ are invertible functions. Show that the inverse of F is given by $F^{−1}(\mathbf{z}) =f^{-1}_1\circ f^{−1}_2\circ\cdots\circ f^{−1}_{K−1}\circ f^{−1}_K(\mathbf{z})$.
+
+First, say $K=1$, we have that $f^{1}_1\circ f_1(\mathbf{x})=\mathbf{x}$ and also $f_1\circ f_1^{\mathbf{z}}=\mathbf{z}$. To ease notation, let $I(x)=x$ be the identity function. Let us by induction show it holds for $K$ starting with the base case $K=2$.
+The inverse is $F^{-1}(\mathbf{z}) = f_{1}^{-1}\circ f_2^{-1}$ as it holds that $f_{1}^{-1}\circ f_2^{-1} \circ f_2 \circ f_1(\mathbf{x})$ = $f_{1}^{-1}\circ I \circ f_1(\mathbf{x}) = I(\mathbf{x}) = x$.
+Assume it holds for the base case, let us now show for $K>2$:
+We write out $F = f_K\circ f_{K−1}\circ\cdots\circ f_2\circ f_1 = f_K\circ (f_{K−1}\circ\cdots\circ f_2\circ f_1) = f_K\circ G$, where $G=(f_{K−1}\circ\cdots\circ f_2\circ f_1)$. We showed in the base case that for any functions $A\circ B$ its inverse is $B^{-1}\circ A^{-1}$. So $F^{-1} = (f_K^\circ G)^{-1} = G^{-1}\circ f_K^{-1} = (f^{-1}_1\circ f^{−1}_2\circ\cdots\circ f^{−1}_{K−1})\circ f_K^{-1}$. We drop the parenthesis and we have:
+$$F^{−1}(\mathbf{z}) =f^{-1}_1\circ f^{−1}_2\circ\cdots\circ f^{−1}_{K−1}\circ f^{−1}_K(\mathbf{z})$$
+## 3) 
+Consider the function $h = g\circ f$ that is composed of the two functions $f:\mathbb{R}^D\rightarrow\mathbb{R}^D,\quad g:\mathbb{R}^D\rightarrow\mathbb{R}^D$. Show that $|\det\mathbf{J}_h| = |\det\mathbf{J}_f||\det\mathbf{J}_g|$ by the following steps:
+1) Show that $\mathbf{J}_h=\mathbf{J}_g\mathbf{J}_f$
+	1) Use the *chain rule* to write down the expression of $(i,j)$'th entry $\mathbf{J}_h$ i.e., $\frac{\partial h_i}{\partial x_j}$
+	2) Use the definition of *matrix multiplication* to write down the $(i,j)$'th entry of $\mathbf{J}_g\mathbf{J}_f$.
+2) Use that the determinant distributes over multiplication to arrive at the final results
+
+First, the $(i,j)$'th entry in $\mathbf{J}_h$ can be expressed as $\nabla g_i(f(\mathbf{x}))\cdot\frac{\partial f}{x_j}$; If we combine this the matrix looks like:
+$$ \mathbf{J}_h = \begin{bmatrix} 
+\nabla g_1 \cdot \frac{\partial f}{\partial x_1} & \nabla g_1 \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_1 \cdot \frac{\partial f}{\partial x_D} \\ \nabla g_2 \cdot \frac{\partial f}{\partial x_1} & \nabla g_2 \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_2 \cdot \frac{\partial f}{\partial x_D} \\ \vdots & \vdots & \ddots & \vdots \\ \nabla g_D \cdot \frac{\partial f}{\partial x_1} & \nabla g_D \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_D \cdot \frac{\partial f}{\partial x_D} \end{bmatrix} $$
+We can reason that $\mathbf{J_g}$ has *rows* that are the *gradient* of it's fucntions so each row is $\nabla g_i$, whereas each column in $\mathbf{J}_f$ has the *partial derivative vector* $\partial f/\partial x_i$. We know that the matrix product $AB$ is a dot product between rows and columns! (i'th row with j'th column).
+
+This allows us to decompose it into 
+$$\mathbf{J}_h = \mathbf{J}_g\mathbf{J}_f = \begin{bmatrix} \nabla g_1 \\ \nabla g_2 \\ \vdots \\ \nabla g_D \end{bmatrix}\times\left[ \frac{\partial f}{\partial x_1}\; \frac{\partial f}{\partial x_2}\;\cdots\; \frac{\partial f}{\partial x_D} \right] $$
+
+Furthermore, we use that the $\det(AB) = \det(A)\det(B)$ to distribute it over the two. Then it follows that:
+$$|\det(\mathbf{AB})|=|\det(\mathbf{A})\det(\mathbf{B})|=|\det(\mathbf{A})||\det(\mathbf{B})|$$
