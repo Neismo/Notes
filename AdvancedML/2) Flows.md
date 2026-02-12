@@ -23,6 +23,7 @@ $$ p(\mathbf{x}) = p(z=f^{-1}(\mathbf{x}))\left|\frac{\partial f^{-1}(\mathbf{x}
 
 where $\mathbf{J_{f^{-1}}}$ is the ==Jacobian Matrix== defined as:
 $$ \mathbf{J}_{f^{-1}} = \begin{bmatrix} \frac{\partial f^{-1}_1}{\partial x_1} & \cdots & \frac{\partial f^{-1}_1}{\partial x_D} \\ \vdots & \ddots & \vdots \\ \frac{\partial f^{-1}_D}{\partial x_1} & \cdots & \frac{\partial f^{-1}_D}{\partial x_D} \end{bmatrix}. $$
+^jacobidef
 
 Further more, we have that the **inverse function theorem** to do:
 $$ |\det\mathbf{J}_{f^{-1}}(\mathbf{x})| = |\det\mathbf{J}_{f(\mathbf{z})}|^{-1}, $$
@@ -126,8 +127,11 @@ $$ \mathbf{J}_h = \begin{bmatrix}
 \nabla g_1 \cdot \frac{\partial f}{\partial x_1} & \nabla g_1 \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_1 \cdot \frac{\partial f}{\partial x_D} \\ \nabla g_2 \cdot \frac{\partial f}{\partial x_1} & \nabla g_2 \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_2 \cdot \frac{\partial f}{\partial x_D} \\ \vdots & \vdots & \ddots & \vdots \\ \nabla g_D \cdot \frac{\partial f}{\partial x_1} & \nabla g_D \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_D \cdot \frac{\partial f}{\partial x_D} \end{bmatrix} $$
 We can reason that $\mathbf{J_g}$ has *rows* that are the *gradient* of it's fucntions so each row is $\nabla g_i$, whereas each column in $\mathbf{J}_f$ has the *partial derivative vector* $\partial f/\partial x_i$. We know that the matrix product $AB$ is a dot product between rows and columns! (i'th row with j'th column).
 
-This allows us to decompose it into 
-$$\mathbf{J}_h = \mathbf{J}_g\mathbf{J}_f = \begin{bmatrix} \nabla g_1 \\ \nabla g_2 \\ \vdots \\ \nabla g_D \end{bmatrix}\times\left[ \frac{\partial f}{\partial x_1}\; \frac{\partial f}{\partial x_2}\;\cdots\; \frac{\partial f}{\partial x_D} \right] $$
+To get a better understanding of ___why___ we can do this, consider that we can write the Jacobian arbitrarily as seen in the [definition](#^jacobidef). If we look at _a column_, then we see it is the different $f_i$ functions partial derivative at ___the same___ $x_k$. Considering rows, each _row_ is one $f_i$ derivation at ___all the different___ $x_k$'s. Respectively, we can summarise the *columns* as $\frac{\partial f}{\partial x_k}$ and the rows as $\nabla f_i = \left( \frac{\partial f_i}{\partial x_1},\cdots,\frac{\partial f_i}{\partial x_D} \right)$.
+
+This allows us to decompose the original $\mathbf{J}_h$ into the following,
+$$\mathbf{J}_h = \mathbf{J}_g\mathbf{J}_f = \begin{bmatrix} \nabla g_1 \\ \nabla g_2 \\ \vdots \\ \nabla g_D \end{bmatrix}\times\left[ \frac{\partial f}{\partial x_1}\; \frac{\partial f}{\partial x_2}\;\cdots\; \frac{\partial f}{\partial x_D} \right]. $$
 
 Furthermore, we use that the $\det(AB) = \det(A)\det(B)$ to distribute it over the two. Then it follows that:
 $$|\det(\mathbf{AB})|=|\det(\mathbf{A})\det(\mathbf{B})|=|\det(\mathbf{A})||\det(\mathbf{B})|$$
+So if it easier to calculate the Jacobian's for each of the composing functions (and their determinants), then it is possible to do that instead of the Jacobian from the composed function.
