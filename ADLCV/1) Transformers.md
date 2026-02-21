@@ -1,9 +1,8 @@
 
 ![[TransformerArc.png]]
 
-# Notes
 
-## Sequence-2-Sequence
+# Sequence-2-Sequence
 
 Takes one sequence of information $x$ and outputs to another sequence $y$
 - NLP: Translation, continuation etc.

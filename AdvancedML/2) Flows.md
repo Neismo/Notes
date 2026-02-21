@@ -115,7 +115,7 @@ The inverse is $F^{-1}(\mathbf{z}) = f_{1}^{-1}\circ f_2^{-1}$ as it holds that 
 Assume it holds for the base case, let us now show for $K>2$:
 We write out $F = f_K\circ f_{K−1}\circ\cdots\circ f_2\circ f_1 = f_K\circ (f_{K−1}\circ\cdots\circ f_2\circ f_1) = f_K\circ G$, where $G=(f_{K−1}\circ\cdots\circ f_2\circ f_1)$. We showed in the base case that for any functions $A\circ B$ its inverse is $B^{-1}\circ A^{-1}$. So $F^{-1} = (f_K^\circ G)^{-1} = G^{-1}\circ f_K^{-1} = (f^{-1}_1\circ f^{−1}_2\circ\cdots\circ f^{−1}_{K−1})\circ f_K^{-1}$. We drop the parenthesis and we have:
 $$F^{−1}(\mathbf{z}) =f^{-1}_1\circ f^{−1}_2\circ\cdots\circ f^{−1}_{K−1}\circ f^{−1}_K(\mathbf{z})$$
-## 3) 
+## 3) Jacobian of a Composed Function
 Consider the function $h = g\circ f$ that is composed of the two functions $f:\mathbb{R}^D\rightarrow\mathbb{R}^D,\quad g:\mathbb{R}^D\rightarrow\mathbb{R}^D$. Show that $|\det\mathbf{J}_h| = |\det\mathbf{J}_f||\det\mathbf{J}_g|$ by the following steps:
 1) Show that $\mathbf{J}_h=\mathbf{J}_g\mathbf{J}_f$
 	1) Use the *chain rule* to write down the expression of $(i,j)$'th entry $\mathbf{J}_h$ i.e., $\frac{\partial h_i}{\partial x_j}$
@@ -127,7 +127,7 @@ $$ \mathbf{J}_h = \begin{bmatrix}
 \nabla g_1 \cdot \frac{\partial f}{\partial x_1} & \nabla g_1 \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_1 \cdot \frac{\partial f}{\partial x_D} \\ \nabla g_2 \cdot \frac{\partial f}{\partial x_1} & \nabla g_2 \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_2 \cdot \frac{\partial f}{\partial x_D} \\ \vdots & \vdots & \ddots & \vdots \\ \nabla g_D \cdot \frac{\partial f}{\partial x_1} & \nabla g_D \cdot \frac{\partial f}{\partial x_2} & \cdots & \nabla g_D \cdot \frac{\partial f}{\partial x_D} \end{bmatrix} $$
 We can reason that $\mathbf{J_g}$ has *rows* that are the *gradient* of it's fucntions so each row is $\nabla g_i$, whereas each column in $\mathbf{J}_f$ has the *partial derivative vector* $\partial f/\partial x_i$. We know that the matrix product $AB$ is a dot product between rows and columns! (i'th row with j'th column).
 
-To get a better understanding of ___why___ we can do this, consider that we can write the Jacobian arbitrarily as seen in the [definition](#^jacobidef). If we look at _a column_, then we see it is the different $f_i$ functions partial derivative at ___the same___ $x_k$. Considering rows, each _row_ is one $f_i$ derivation at ___all the different___ $x_k$'s. Respectively, we can summarise the *columns* as $\frac{\partial f}{\partial x_k}$ and the rows as $\nabla f_i = \left( \frac{\partial f_i}{\partial x_1},\cdots,\frac{\partial f_i}{\partial x_D} \right)$.
+To get a better understanding of ___why___ we can do this, consider that we can write the Jacobian arbitrarily as seen in the [definition](#^jacobidef). If we look at _a column_, then we see it is the different $f_i$ functions partial derivative at ___the same___ $x_k$. Considering rows, each _row_ is one $f_i$ derivation at ___all the different___ $x_k$'s. Respectively, we can summarize the *columns* as $\frac{\partial f}{\partial x_k}$ and the rows as $\nabla f_i = \left( \frac{\partial f_i}{\partial x_1},\cdots,\frac{\partial f_i}{\partial x_D} \right)$.
 
 This allows us to decompose the original $\mathbf{J}_h$ into the following,
 $$\mathbf{J}_h = \mathbf{J}_g\mathbf{J}_f = \begin{bmatrix} \nabla g_1 \\ \nabla g_2 \\ \vdots \\ \nabla g_D \end{bmatrix}\times\left[ \frac{\partial f}{\partial x_1}\; \frac{\partial f}{\partial x_2}\;\cdots\; \frac{\partial f}{\partial x_D} \right]. $$

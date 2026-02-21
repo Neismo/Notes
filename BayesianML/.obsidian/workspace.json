@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "2. Grid Approximations.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -22,7 +22,7 @@
             }
           },
           {
-            "id": "347073c3260acd0a",
+            "id": "117ca21317e51bcb",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -198,10 +198,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "347073c3260acd0a",
+  "active": "117ca21317e51bcb",
   "lastOpenFiles": [
     "2. Grid Approximations.md",
     "3. Bayesian Linear Regression.md",
+    "Figures/Prior&PredictiveDistributions.png",
+    "2..md",
     "Figures/PlugInApproximation.png",
     "1. Basics & Beta-Binomial Model.md",
     "Templates/BracedMath.md",
