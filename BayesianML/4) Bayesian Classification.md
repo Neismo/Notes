@@ -120,7 +120,7 @@ where $Z$ is a normalization constant, and $f(\circ)$ is a function that resembl
 $$ \ln\mathcal{N}(\mathbf{w}|\mathbf{m},\mathbf{S}) = -\frac{D}{2}\ln(2\pi)-\frac{1}{2}\ln|\mathbf{S}|-\frac{1}{2}(\mathbf{w}-\mathbf{m})^\top S^{-1}(\mathbf{w}-\mathbf{m}), \tag{3}$$
 which is quadratic in $\mathbf{w}$. We now make a second-order Taylor expansion of $f(\mathbf{w})$ around the **MAP** estimator $\mathbf{w}_{MAP}$:
 $$ \ln f(\mathbf{w}) \sim \ln f(\mathbf{w}_{MAP}) - \frac{1}{2}(\mathbf{w}-\mathbf{m})^\top \mathbf{A}(\mathbf{w}-\mathbf{m}), \tag{4}$$
-where $A = -\nabla \nabla \ln f(\mathbf{w})|_{\mathbf{w}=\mathbf{w}_{MAP}}$ is the Hessian at the mode (MAP). The first order term is missing because we are at the mode (so the derivative is 0). Compare (3) to (4) above, and notice that $\mathbf{m}=\mathbf{w}_{MAP}$ and $S=A^{-1}$. So the ==Laplace transformation== is approximated as:
+where $A = -\nabla \nabla \ln f(\mathbf{w})|_{\mathbf{w}=\mathbf{w}_{MAP}}$ is the Hessian at the mode/MAP. **NOTE: IMPORTANT IT IS NEGATIVE OF HESSIAN**! The *first order* term is missing because we are at the mode (so the derivative is 0). Compare (3) to (4) above, and notice that $\mathbf{m}=\mathbf{w}_{MAP}$ and $S=A^{-1}$. So the ==Laplace transformation== is approximated as:
 $$ q(\mathbf{w})=\mathcal{N}(\mathbf{w}|\mathbf{w}_{MAP},\mathbf{A}^{-1}). $$
 
 ### Summarize of steps:

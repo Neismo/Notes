@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -212,10 +212,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "117ca21317e51bcb",
+  "active": "bd3301c3aa6ff6f0",
   "lastOpenFiles": [
-    "3. Bayesian Linear Regression.md",
+    "Stuff.md",
     "4) Bayesian Classification.md",
+    "3. Bayesian Linear Regression.md",
     "2. Grid Approximations.md",
     "Figures/Prior&PredictiveDistributions.png",
     "2..md",
