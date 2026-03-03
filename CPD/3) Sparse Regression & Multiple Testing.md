@@ -67,7 +67,7 @@ $$ \min_{\beta}\frac{1}{2n}\sum_{i=1}^n (y_{i}-x_{i}\beta)^2+\lambda|\beta|, $$
 iteratively by updating one coordinate $\beta_{j}$ at a time, while holding the others fixed in the current estimate $\hat{\beta}_{k}$. 
 
 ### Elastic Net
-Combination of LASSO and Ridge regression:
+Combination of Lasso and Ridge regression:
 $$ \min_{\beta}\frac{1}{2n}||Y-X\beta||^2_{2} + \lambda\left( \frac{1}{2}(1-\alpha)||\beta||_{2}^2+\alpha||\beta||_{1} \right) $$
 So:
 - $\alpha=1$: LASSO

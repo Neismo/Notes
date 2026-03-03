@@ -110,7 +110,7 @@ $\mu$ and $\sigma$ are outputs from the encoder network.
 ## Potential Problems with VAEs
 
 - *Posterior Collapse*: this happens when the *decoder* just models $\mathbf{z}$.
-- *Hole Problem*: when the aggregated prior $q_\phi(\mathbf{z}) = \frac{1}{N}\sum_n q_\phi(\mathbf{z}|\mathbf{x}_n)$ mismatches the real prior $p(\mathbf{z})$ then there are regions where the prior is high probability, but low for the aggregated (and reverse). This produces low-quality results.
+- *Hole Problem*: when the aggregated posterior $q_\phi(\mathbf{z}) = \frac{1}{N}\sum_n q_\phi(\mathbf{z}|\mathbf{x}_n)$ mismatches the real prior $p(\mathbf{z})$ then there are regions where the prior is high probability, but low for the aggregated (and reverse). This produces low-quality results.
 - *Unbounded likelihood*: MLE is *ill-posed* for VAEs with Gaussian output densities. Likelihood is unbounded; fixed by *reguralization*, *clamping* the output co-variance
 - *Out-of-distribution Problem*: VAEs often fail to detect out-of-distribution examples. This means, we would expect low probability for out-of-distribution examples, but in practice, it is now like that (funnily enough)
 
