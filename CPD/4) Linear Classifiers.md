@@ -12,7 +12,7 @@ We see that in order to *classify*, we mostly require the term $f_{k}(x)$. For t
 - *Naive Bayes'* models are a simple model that assumes inputs are ==conditionally independent== in each class!
 
 # Linear Discriminant Analysis
-In this case we model the class densities as multivariate Gaussian distributions:
+In this case we model the class densities as multivariate Gaussian distributions (assumption):
 $$ f_{k}(x)=\frac{1}{(2\pi)^{p/2}|\Sigma_{k}|^{1/2}}\exp\left( -\frac{1}{2}(x-\mathbf{\mu}_{k})^\top\Sigma_{k}^{-1}(x-\mathbf{\mu}_{k}) \right), $$
 where it is assumes that each class ==share covariance matrix==: $\mathbf{\Sigma}_{k}=\mathbf{\Sigma}\, \forall k$. When comparing two classes, it is sufficient to do it in *log* space, and so we take the log fraction:
 $$ \begin{align}
@@ -56,7 +56,7 @@ where $\hat{\mathbf{\Sigma}}$ is the pooled covariance from LDA, and $\alpha \in
 1) **Shrink towards diagonal**: $\hat{\Sigma}(\gamma)=\gamma\hat{\Sigma}+(1-\gamma)\hat{\Sigma}$
 
 # Logistic Regression
-We want linear functions and sum probabilities to one:
+We want linear functions and sum probabilities to one - no longer an assumption on data distribution:
 $$\begin{align}
 \log \frac{p(G=1|X=x)}{p(G=K|X=x)} &= \beta_{10}+\beta_{1}^\top x \\
 \log \frac{p(G=2|X=x)}{p(G=K|X=x)} &= \beta_{20}+\beta_{2}^\top x \\
@@ -146,7 +146,7 @@ Sometimes we want non-linear realities, but above are linear models. To do this,
 
 Use up to $x^3$, no more needed as that will give *smooth* enough curves between the knots (derivative and hessian).
 
-![[Pasted image 20260226090158.png]]
+![[SplineApproximation.png]]
 
 Here we denote $(x-\delta)_{+}^3$ as the **hinge function**, which is defined as:
 - If $x<\delta$, the value is $0$!

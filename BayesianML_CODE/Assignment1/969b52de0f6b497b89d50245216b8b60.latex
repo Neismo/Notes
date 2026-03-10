@@ -1,0 +1,431 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{39bb0c55}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\%}\NormalTok{matplotlib inline}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\ImportTok{import}\NormalTok{ jax.numpy }\ImportTok{as}\NormalTok{ jnp}
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ seaborn }\ImportTok{as}\NormalTok{ snb}
+\ImportTok{from}\NormalTok{ typing }\ImportTok{import}\NormalTok{ NamedTuple}
+\ImportTok{from}\NormalTok{ typing }\ImportTok{import}\NormalTok{ Tuple}
+
+\ImportTok{from}\NormalTok{ scipy.stats }\ImportTok{import}\NormalTok{ binom }\ImportTok{as}\NormalTok{ binom\_dist}
+\ImportTok{from}\NormalTok{ scipy.stats }\ImportTok{import}\NormalTok{ beta }\ImportTok{as}\NormalTok{ beta\_dist}
+\ImportTok{from}\NormalTok{ scipy.special }\ImportTok{import}\NormalTok{ beta }\ImportTok{as}\NormalTok{ beta\_fun}
+\ImportTok{from}\NormalTok{ scipy.special }\ImportTok{import}\NormalTok{ gamma}
+\ImportTok{from}\NormalTok{ scipy.special }\ImportTok{import}\NormalTok{ comb}
+
+\NormalTok{snb.set\_style(}\StringTok{\textquotesingle{}darkgrid\textquotesingle{}}\NormalTok{)}
+\NormalTok{snb.}\BuiltInTok{set}\NormalTok{(font\_scale}\OperatorTok{=}\FloatTok{1.5}\NormalTok{)}
+\NormalTok{plt.rcParams[}\StringTok{\textquotesingle{}lines.linewidth\textquotesingle{}}\NormalTok{] }\OperatorTok{=} \DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{4773c27b}{}
+\hypertarget{part-1-the-beta-binomial-model}{%
+\section{Part 1) The beta-binomial
+model}\label{part-1-the-beta-binomial-model}}
+
+Your friend has set up a website for her new business. So far
+\(N = 115\) potential customers has visited her site, but only \(y = 4\)
+customers have completed a purchase. To plan her future investments, she
+asks you for help to compute the probability that at least one of the
+next \(N^∗ = 20\) customers will make a purchase. You decide to model
+the problem using the beta-binomial model with a uniform prior
+distribution on the probability of making a purchase
+\(\theta \in [0, 1]\):
+
+\[\begin{align}
+\theta &∼ \text{Beta}(a_0, b_0) \\
+y|\theta &∼ \text{Binomial}(N, \theta) \\
+\end{align}\]
+
+where \(a_0 = b_0 = 1\)
+
+\hypertarget{6bf74f7d}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a0 }\OperatorTok{=}\NormalTok{ b0 }\OperatorTok{=} \DecValTok{1}
+\NormalTok{y }\OperatorTok{=} \DecValTok{4}
+\NormalTok{N }\OperatorTok{=} \DecValTok{115}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{48c1e8aa}{}
+\hypertarget{task-11-compute-the-prior-mean-of-theta-and-provide-a-95-interval-for-the-prior}{%
+\subsection{\texorpdfstring{Task 1.1) Compute the prior mean of
+\(\theta\) and provide a 95\% interval for the
+prior}{Task 1.1) Compute the prior mean of \textbackslash theta and provide a 95\% interval for the prior}}\label{task-11-compute-the-prior-mean-of-theta-and-provide-a-95-interval-for-the-prior}}
+
+As the Beta distribution is a distribution in the interval \([0,1]\),
+and is symmetric and equiprobable over it when \(a=b=1\), it is easy to
+see that the prior mean is 0.5. Formally, the mean of the beta
+distribution is \(\frac{\alpha}{\alpha + \beta}\), and we can calculate
+it easily as:
+\[ \mathbb{E}[\theta] = \frac{\alpha}{\alpha + \beta} = 0.5 \]
+
+The same reasoning can be done for the 95\% credibility interval. In
+this case, as it is symmetric, it corresponds to
+\(\theta\in[0.025, 0.975]\)
+
+\hypertarget{b6cd277a}{}
+\hypertarget{task-12-compute-the-posterior-mean-of-theta-and-provide-a-95-credibility-interval-for-the-posterior}{%
+\subsection{\texorpdfstring{Task 1.2) Compute the posterior mean of
+\(\theta\) and provide a 95\% credibility interval for the
+posterior}{Task 1.2) Compute the posterior mean of \textbackslash theta and provide a 95\% credibility interval for the posterior}}\label{task-12-compute-the-posterior-mean-of-theta-and-provide-a-95-credibility-interval-for-the-posterior}}
+
+For this, we must compute the posterior
+\(p(\theta|y)\propto p(y|\theta)p(\theta)\). As the \(\beta\)
+distribution is a conjugate distribution to a binomial distribution, the
+posterior is likewise a Beta distribution. In the exercises and in
+class, it was shown that the resulting posterior distribution will
+follow a beta distribution as follows: \[ \begin{align}
+p(\theta|y) &= \text{Beta}(\theta | a_0 + y, b_0 + N - y) \\
+&= \text{Beta}(\theta | 1 + 4, 1 + 115 - 4) 
+&= \text{Beta}(\theta | 5, 112) \end{align}
+\]
+
+\hypertarget{2f3999b2}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a\_post }\OperatorTok{=}\NormalTok{ a0 }\OperatorTok{+}\NormalTok{ y}
+\NormalTok{b\_post }\OperatorTok{=}\NormalTok{ b0 }\OperatorTok{+}\NormalTok{ N }\OperatorTok{{-}}\NormalTok{ y}
+\end{Highlighting}
+\end{Shaded}
+
+\leavevmode\vadjust pre{\hypertarget{34a86111}{}}%
+Let \(y^*\) denote the number of purchases during the next \(N^*=20\)
+visits.
+
+\hypertarget{task-13-compute-and-plot-the-posterior-predictive-distribution-for-y-given-y--4}{%
+\subsection{\texorpdfstring{Task 1.3) Compute and plot the posterior
+predictive distribution for \(y^∗\) given
+\(y = 4\).}{Task 1.3) Compute and plot the posterior predictive distribution for y\^{}∗ given y = 4.}}\label{task-13-compute-and-plot-the-posterior-predictive-distribution-for-y-given-y--4}}
+
+For this task, we must compute
+\(p(y^*|y,\theta,N^*) = \int p(y^*|\theta)p(\theta|y) \partial\theta\).
+When inserting the PMF for the binomial and beta distributions, it
+simplifies a such that the integral only has the functional form of the
+beta distribution left, and so the above integral will evalute to:
+
+\[p(y^*|y,N^*) = \int p(y^*|\theta)p(\theta|y) d\theta = \binom{N^*}{k}\frac{B(\alpha+k,\beta+N^*-k)}{B(\alpha,\beta)},\text{ where } B(a, b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)} \]
+
+In this case, we have that \(N^* = 20\), and so \(k\in[0,20]\).
+
+In the plot, we see that the majority of the probability mass is
+centered around 0 and 1. We expect this, as only originally 4 out of the
+115 customers in the original data would make a purcahse.
+
+\hypertarget{c5724e8f}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ beta\_norm(a, b):}
+    \ControlFlowTok{return}\NormalTok{ gamma(a) }\OperatorTok{*}\NormalTok{ gamma(b) }\OperatorTok{/}\NormalTok{ gamma(a }\OperatorTok{+}\NormalTok{ b)}
+
+\NormalTok{N\_star }\OperatorTok{=} \DecValTok{20}
+\NormalTok{k }\OperatorTok{=} \BuiltInTok{list}\NormalTok{(}\BuiltInTok{range}\NormalTok{(N\_star }\OperatorTok{+} \DecValTok{1}\NormalTok{))}
+\NormalTok{post\_pred\_probs }\OperatorTok{=}\NormalTok{ np.array([comb(N\_star, k\_) }\OperatorTok{*}\NormalTok{ (beta\_norm(k\_ }\OperatorTok{+}\NormalTok{ a\_post, b\_post }\OperatorTok{+}\NormalTok{ N\_star }\OperatorTok{{-}}\NormalTok{ k\_)}\OperatorTok{/}\NormalTok{beta\_norm(a\_post, b\_post)) }\ControlFlowTok{for}\NormalTok{ k\_ }\KeywordTok{in}\NormalTok{ k])}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Sum of predictive probs:"}\NormalTok{, post\_pred\_probs.}\BuiltInTok{sum}\NormalTok{())}
+
+\NormalTok{plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{6}\NormalTok{))}
+\NormalTok{plt.bar(k, post\_pred\_probs, color}\OperatorTok{=}\StringTok{"blue"}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{)}
+\NormalTok{plt.xlabel(}\StringTok{"Number of successes (k)"}\NormalTok{)}
+\NormalTok{plt.ylabel(}\StringTok{"Posterior predictive probability"}\NormalTok{)}
+\NormalTok{plt.title(}\StringTok{"Posterior Predictive Distribution (Beta{-}Binomial)"}\NormalTok{)}
+\NormalTok{plt.xticks(k)}
+\NormalTok{plt.grid(axis}\OperatorTok{=}\StringTok{"y"}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Sum of predictive probs: 0.9999999999999996
+\end{verbatim}
+
+\includegraphics{vertopal_969b52de0f6b497b89d50245216b8b60/3e4227a5219ed7d7baca9e4bc0508aa1c97ec35c.png}
+
+\hypertarget{de543b12}{}
+\hypertarget{task-14-what-is-the-posterior-predictive-probability-that-at-least-one-of-the-next-n-20-customers-will-make-a-purchase}{%
+\subsection{\texorpdfstring{Task 1.4) What is the posterior predictive
+probability that at least one of the next \(N^∗= 20\) customers will
+make a
+purchase?}{Task 1.4) What is the posterior predictive probability that at least one of the next N\^{}∗= 20 customers will make a purchase?}}\label{task-14-what-is-the-posterior-predictive-probability-that-at-least-one-of-the-next-n-20-customers-will-make-a-purchase}}
+
+We the predictive posterior distribution, this is easy as must simply
+sum up for \(y = k\), for \(k\geq 1\):
+\[ p(y^* >= 1|y, N^*) = \sum_{k=1}^{N^*} p(y^* = k|y, N^*) = \sum_{k=1}^{N^*} \binom{N^*}{k}\frac{B(\alpha+k,\beta+N^*-k)}{B(\alpha,\beta)} \approx 55.44\%\]
+
+\hypertarget{b109fcef}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.}\BuiltInTok{sum}\NormalTok{(post\_pred\_probs[}\DecValTok{1}\NormalTok{:]).item()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+0.5543908502644233
+\end{verbatim}
+
+\hypertarget{d54cf84c}{}
+\hypertarget{task-15-compute-mean-and-variance-of-the-posterior-predictive-distribution-for-y}{%
+\subsection{\texorpdfstring{Task 1.5) Compute mean and variance of the
+posterior predictive distribution for
+\(y^∗\).}{Task 1.5) Compute mean and variance of the posterior predictive distribution for y\^{}∗.}}\label{task-15-compute-mean-and-variance-of-the-posterior-predictive-distribution-for-y}}
+
+The mean of the binomial distribution is simply
+\(\mathbb{E}[y^*|y,N^*] = np\). Here, however, \(\theta\) is uncertain
+and integrated out, so \(y^*|y,N^*\) follows a posterior predictive
+(beta-binomial) distribution. So we must do it the old fashioned way,
+where the mean of a stochastic discrete random variable is computed as
+\[
+\mathbb{E}[y^*|y,N^*] = \sum_{k=0}^{N^*} k\,p(y^*=k|y,N^*) \approx 0.855.
+\]
+
+Likewise, the variance is
+
+\[
+\begin{aligned}
+\mathbb{V}[y^*|y,N^*]
+&= \mathbb{E}\!\left[(y^*-\mu)^2 \mid y,N^*\right] \\
+&= \mathbb{E}\!\left[(y^*)^2 \mid y,N^*\right] - \mu^2,\quad
+\mu=\mathbb{E}[y^*|y,N^*] \\
+&\approx 0.95.
+\end{aligned}
+\]
+
+\hypertarget{dacdba38}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mu }\OperatorTok{=}\NormalTok{ np.}\BuiltInTok{sum}\NormalTok{(np.arange(}\BuiltInTok{len}\NormalTok{(post\_pred\_probs)) }\OperatorTok{*}\NormalTok{ post\_pred\_probs).item()}
+\NormalTok{var }\OperatorTok{=}\NormalTok{ np.}\BuiltInTok{sum}\NormalTok{((np.arange(}\BuiltInTok{len}\NormalTok{(post\_pred\_probs)) }\OperatorTok{{-}}\NormalTok{ mu)}\OperatorTok{**}\DecValTok{2} \OperatorTok{*}\NormalTok{ post\_pred\_probs).item()}
+\NormalTok{mu, var}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(0.8547008547008542, 0.9499152480464949)
+\end{verbatim}
+
+\hypertarget{eaf32382}{}
+\hypertarget{part-2-linear-gaussian-systems}{%
+\section{Part 2) Linear Gaussian
+systems}\label{part-2-linear-gaussian-systems}}
+
+Let \(z_1,z_2\in\mathbb{R}^2\) and \(y\in\mathbb{R}\) be random
+variables and consider the following linear Gaussian system:
+\[ \begin{align}
+z_1 &\sim \mathcal{N}(\mathbf{0}, v\mathbf{I}) \\
+z_2|z_1 &\sim \mathcal{N}(z_1, v\mathbf{I}) \\
+y|z_2 &\sim \mathcal{N}(\mathbf{a}^\top z_2, \sigma^2),
+\end{align}\]
+
+where \(\mathbf{a}\in\mathbb{R}^2\) is a constant. The joint
+distribution of \((y,z_2, z_1)\) is given by
+\[ p(y,z_2,z_1) = p(y|z_2)p(z_2|z_1)p(z_1) \]
+
+\hypertarget{7f1294bf}{}
+\hypertarget{task-21-determine-the-distribution-py}{%
+\subsection{\texorpdfstring{Task 2.1) Determine the distribution
+\(p(y)\)}{Task 2.1) Determine the distribution p(y)}}\label{task-21-determine-the-distribution-py}}
+
+To determine this, we must use probability rules to determine the
+expression for \(p(y)\). If we start with equation (1) to (3), it would
+be beneficial to compute an expression for \(p(z_2)\) first.
+
+We see that we can write \(z_2 = z_1 + e_2\) where
+\(e_2\sim\mathcal{N}(\mathbf{0}, v\mathbf{I})\). When we do an affine
+transformation of multivariate Gaussian distributions, we get yet
+another Guassian distribution
+
+\[ \begin{align*}
+\mathbb{E}[z_1 + e_2] &= \mathbb{E}[z_1] + \mathbb{E}[e_2] = \mathbf{0} + \mathbf{0} = \mathbf{0} \\
+\mathbb{V}[z_1 + e_2] &= \mathbb{V}[z_1] + \mathbb{V}[e_2] = v\mathbf{I} + v\mathbf{I} = 2v\mathbf{I}
+\end{align*} \]
+
+Note, in the above the covariance from the variance expression is left
+out as it zeros out. From above we now see that
+\(z_2 \sim \mathcal{N}(\mathbf{0},2v\mathbf{I})\).
+
+Now we can similar do \(y = \mathbf{a}^\top z_2 + e_y\) where
+\(e_y = \mathcal{N}(0, \sigma^2)\).
+
+\[ \begin{align*}
+\mathbb{E}[\mathbf{a}^\top z_2 + e_y] &= \mathbf{a}^\top\mathbb{E}[z_2] + \mathbb{E}[e_y] = \mathbf{a}^\top\mathbf{0} + 0 = 0 \\
+\mathbb{V}[\mathbf{a}^\top z_2 + e_y] &= \mathbb{V}[\mathbf{a}^\top z_2] + \mathbb{V}[e_y] = \mathbf{a}^\top 2v\mathbf{I}\mathbf{a} + \sigma^2 = 2v||\mathbf{a}||_2^2 + \sigma^2,
+\end{align*} \]
+
+And so we arrive with
+\(p(y) = \mathcal{N}(y|0, 2v||\mathbf{a}||_2^2 + \sigma^2)\)
+
+\hypertarget{e10049e0}{}
+\hypertarget{task-22-determine-the-distribution-pyz_2z_1}{%
+\subsection{\texorpdfstring{Task 2.2) Determine the distribution
+\(p(y,z_2|z_1)\)}{Task 2.2) Determine the distribution p(y,z\_2\textbar z\_1)}}\label{task-22-determine-the-distribution-pyz_2z_1}}
+
+We can write out this joint distribution as
+\(p(y,z_2|z_1) = p(z_2|z_1)p(y|z_2)\). This looks like the linear system
+described in the book by Murphy, where the joint distribution would have
+mean and covariance matrix described as
+
+\[ \begin{align}
+\mathbf{\mu} &= \begin{bmatrix} \mu_{z_2|z_1} \\ \mathbf{a}^\top \mu_{z_2|z_1} \end{bmatrix} = \begin{bmatrix} z_1 \\ \mathbf{a}^\top z_1 \end{bmatrix} \\
+\mathbf{\Sigma} &= \begin{bmatrix} v\mathbf{I} & v\mathbf{I}\mathbf{a} \\ v\mathbf{I}\mathbf{a}^\top& \sigma^2 + \mathbf{a}(v\mathbf{I})\mathbf{a}^\top \end{bmatrix} = \begin{bmatrix} v\mathbf{I} & v\mathbf{a} \\ v\mathbf{a}^\top& \sigma^2 + v||\mathbf{a}||_2^2 \end{bmatrix} \\
+\end{align} \]
+
+and so the distribution of \$p(y,z\_2\textbar z\_1) =
+\textbackslash mathcal\{N\}\textbackslash left(
+\textbackslash begin\{bmatrix\} z\_2 \textbackslash{} y
+\textbackslash end\{bmatrix\} \textbackslash middle\textbar{}
+\textbackslash begin\{bmatrix\} z\_1 \textbackslash{}
+\textbackslash mathbf\{a\}\^{}\textbackslash top z\_1
+\textbackslash end\{bmatrix\}, \textbackslash begin\{bmatrix\}
+v\textbackslash mathbf\{I\} \& v\textbackslash mathbf\{a\}
+\textbackslash{} v\textbackslash mathbf\{a\}\^{}\textbackslash top\&
+\textbackslash sigma\^{}2 +
+v\textbar\textbar\textbackslash mathbf\{a\}\textbar\textbar\_2\^{}2
+\textbackslash end\{bmatrix\} \textbackslash right) \$
+
+\hypertarget{71218fc1}{}
+\hypertarget{task-23-determine-the-distribution-pyz_1}{%
+\subsection{\texorpdfstring{Task 2.3) Determine the distribution
+\(p(y|z_1)\)}{Task 2.3) Determine the distribution p(y\textbar z\_1)}}\label{task-23-determine-the-distribution-pyz_1}}
+
+We were smart in task 2.2 to write out the linear Gaussian system in
+such a way, that we can easily inspect it to determine the distribution,
+which is the lower element of the \(\mu\) matrix, and the bottom right
+of the covariance matrix \(\mathbf{\mathbf{\Sigma}}\):
+
+\[ p(y|z_1) = \mathcal{N}\left(y|\mathbf{a}^\top z_1, \sigma^2 + v||\mathbf{a}||_2^2\right) \]
+
+\hypertarget{79b4fa37}{}
+\hypertarget{task-24-determine-the-distribution-pz_1y}{%
+\subsection{\texorpdfstring{Task 2.4) Determine the distribution
+\(p(z_1|y)\)}{Task 2.4) Determine the distribution p(z\_1\textbar y)}}\label{task-24-determine-the-distribution-pz_1y}}
+
+Writing this out with \emph{Bayes\textquotesingle{} Theorem}, we get
+\(p(z_1|y) = \frac{p(y|z_1)p(z_1)}{p(y)}\), where the \emph{marginal
+likelihood} \(p(y)\) is simply normalizing it to 1. In the book Murphy,
+we also get the closed form solution on the form below, where I have
+appropriately substitued the terms which may be relevant from task 2.3
+(the variance for example \(\Sigma_y\) which is the varince from task
+2.3, and \emph{not} just the variance of \(y\) ).
+
+\[ \begin{align}
+p(\mathbf{z_1}|\mathbf{y}) &= \mathcal{N}(z_1|\mathbf{\mu}_{z_1|y}, \mathbf{\Sigma}_{z_1|y}) \\
+\mathbf{\Sigma}^{-1}_{z_1|y} &= (v\mathbf{I})^{-1} + \mathbf{a}(\sigma^2 + v||\mathbf{a}||_2^2)^{-1}\mathbf{a} ^\top \\
+\mathbf{\mu}_{z_1|y} &= \mathbf{\Sigma}_{z_1|y}\left[ \mathbf{a}(\sigma^2 + v||\mathbf{a}||_2^2)^{-1}(y) + v\mathbf{I}\mathbf{0} \right] = \mathbf{\Sigma}_{z_1|y}\left[ \frac{y\mathbf{a}}{\sigma^2 + v||\mathbf{a}||_2^2} \right],
+\end{align} \]
+
+which is the final posterior distribution.
+
+\hypertarget{0358e9b0}{}
+\hypertarget{part-3-poisson-gamma}{%
+\section{Part 3) Poisson-Gamma}\label{part-3-poisson-gamma}}
+
+\end{document}
