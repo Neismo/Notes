@@ -133,6 +133,8 @@ c_{01}&=\arg\min_{c}\text{Length}_{\mathcal{M}}(c) \\
 We call above local minimizer a **geodesic**. Given the shortest connecting curve between two points, we define the **geodesic distance** as the length of this curve:
 $$ \text{dist}(c_{0},c_{1}) = \text{Length}_{\mathcal{M}}(c_{01}). $$
 
+This is a point along the *manifold*, so different from Euclidean.
+
 As it is a proper distance metric it must satisfy the following
 $$ \begin{align}
 \text{dist}(x,y)&=0\Leftrightarrow x=y \\
@@ -197,7 +199,7 @@ where the subscript $\langle\circ\rangle_{\mathbf{x}}$ signifies it is calculate
 ## Local Norms & Angles
 
 Given a vector $\mathbf{v}$ in the tangent space at $\mathbf{x}$, we can measure its norm using local inner product
-$$ ||\mathbf{v}||_{\mathbf{x}} =\sqrt{ \langle\mathbf{v},\mathbf{v}\rangle_{\mathbf{x}} } = ||\mathbf{Jv}||_{2} = \mathbf{v}^\top\mathbf{J}_{x}^\top\mathbf{J}_{x}\mathbf{v} $$
+$$ ||\mathbf{v}||_{\mathbf{x}} =\sqrt{ \langle\mathbf{v},\mathbf{v}\rangle_{\mathbf{x}} } = ||\mathbf{Jv}||_{2} = \sqrt{ \mathbf{v}^\top\mathbf{J}_{x}^\top\mathbf{J}_{x}\mathbf{v}  }$$
 
 If two curves $c_{1}$ and $c_{2}$ intersect on the manifold at some point $\mathbf{x}$, we can get an *angle* between them. Commonly between two vectors $\mathbf{v}_{1},\mathbf{v}_{2}$
 $$ \cos(\theta) = \frac{\langle\mathbf{v}_{1},\mathbf{v}_{2}\rangle}{||\mathbf{v}_{1}||_{2}\cdot||\mathbf{v}_{2}||_{2}}, $$
@@ -235,7 +237,7 @@ $$ \mathbf{\tilde{\mathbf{G}}}=\tilde{\mathbf{J}}^\top \tilde{\mathbf{J}} = (\ma
 
 ## Riemannian Metrics & Manifolds
 
-The metric function can be sees $\mathbf{G}_{x}:\Omega\rightarrow \text{Sym}_{+}^{d\times d}$.
+The metric function can be seen as $\mathbf{G}_{x}:\Omega\rightarrow \text{Sym}_{+}^{d\times d}$.
 
 If the metric is a *smooth function*, then we call the manifold $\mathcal{M}$ as *Riemannian Manifold*. We want it smooth to have ==access to derivatives==.
 

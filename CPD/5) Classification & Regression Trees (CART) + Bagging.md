@@ -65,7 +65,7 @@ Surrogate variable.
 # Bagging
 Ensemble method
 Many models on bootstrapped samples
-Output from all models aggregated to one model
+Output from all models aggregated to one model (average)
 
 *bootstrap*: with replacement
 
@@ -74,6 +74,8 @@ Output from all models aggregated to one model
 	1) Fit a model to the bootstrap, and make prediction
 3) Bagging estimate is average of B predictions
 $$ \hat{y}_{\text{bagging}} = \frac{1}{B}\sum_{b=1}^B\hat{y}_{b} $$
+
+Bagging reduces variance, but does nothing to bias.
 
 # Exercises
 {1,2,3,4}:
