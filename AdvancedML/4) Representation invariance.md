@@ -32,7 +32,7 @@ Since a paper and a sphere can't have the same curvature, it can't be preserved 
 
 # Embedded & Immersed Manifolds
 
-We have observed data $\mathbf{y}_{1},\cdots,\mathbf{y}_{N}\in \mathbb{R}^D$, called the ==ambient space/latent space==. It is possible to fit on a lower-dimensional fold $\mathcal{M}$ with this data, through a *mapping*:
+We have observed data $\mathbf{y}_{1},\cdots,\mathbf{y}_{N}\in \mathbb{R}^D$, called the ==ambient space==. It is possible to fit a lower-dimensional fold $\mathcal{M}$ with this data, through a *mapping*:
 $$ f:\mathbb{R}^d\rightarrow \mathbb{R}^D,\quad d<D $$
 from a *low-dimensional manifold* to a higher dimensional observation space. Different functions of $f$ give rise to different manifolds. We call *f* the *decoder*.
 
