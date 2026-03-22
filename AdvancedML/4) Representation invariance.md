@@ -367,7 +367,7 @@ $$ \begin{align}
 \end{bmatrix}^\top\begin{bmatrix}
 2 \\
 -2t
-\end{bmatrix}} = \sqrt{ 4+4t^2+4 } = 2\sqrt{1 + t^2 } \\
+\end{bmatrix}} = \sqrt{ 4+4t^2 } = \sqrt{ 4(1+t^2) } = 2\sqrt{1 + t^2 } \\
 \end{align} $$
 2) Compute the euclidean length of the curve:
 Since this is not the length of $f(c_t)$, we do not need the Jacobian of $f$, and can just do the integral of the above
@@ -377,7 +377,6 @@ $$ \begin{align}
 &= 2\cdot\left( \left[ \frac{1}{2}(\sqrt{ 1+t^2 }t+\sinh^{-1}(t)) \right]_{0}^1 \right) \\
 &= 2\cdot\left( \left[ \frac{1}{2}(\sqrt{ 1+1^2 }1+\sinh^{-1}(1) \right] - \left[ \frac{1}{2}(\sqrt{ 1+0^2 }0+\sinh^{-1}(0)) \right] \right) \\
 &=2\cdot\left( \frac{1}{2}(\sqrt{ 2 }+\sinh^{-1}(1)) \right) \\
-&=\sqrt{ 2 }+\sinh^{-1}(1)
+&=\sqrt{ 2 }+\sinh^{-1}(1) \approx 2.265
 \end{align} $$
-
 ### 4) 

@@ -1,4 +1,4 @@
-
+l
 # Why Deep Generative Modeling?
 
 We want models to be uncertain in regions where it did not have data. For example in a 2D example with two regions of data points (different classes), even if we get a decision boundary, if we see a data point far from what has been observed, we want to have a low marginal probability $p(x)$ to weight down the certainty.

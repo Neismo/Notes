@@ -76,28 +76,7 @@ $$ v_{t} = 1, $$
 
 So now the length of the curve can be written as
 $$ \text{Length}_{\mathcal{M}}(c) = \int_{0}^1u_{t}v_{t}\text{d}t = \int_{0}^1||\dot{c}_{t}||_{2}\text{d}t = \langle u,v\rangle. $$
-By the **Cauchy-Schwarz** ine￼￼3) Quadratic metric
-Again consider ￼
-￼
-1) Derive the coefficients of the geodesics ODE of this metric
-
-As ￼
- 
-￼
-We get that ￼
- 
-￼
-which when inserted gives us
- 
- 
- 
- 
- 
- 
- 
- 
- 
-quality (curve is always positive due to norm, so no absolute value bars)
+By the **Cauchy-Schwarz** inequality (curve is always positive due to norm, so no absolute value bars)
 $$ \begin{align}
 \text{Length}_{\mathcal{M}}(c) &\leq ||u||\cdot||v|| \\
 &= \sqrt{ \int_{0}^1 ||\dot{c}_{t}||_{2}^2 \text{d}t}\sqrt{ \int_{0}^1 1^2 \text{d}t } \\
