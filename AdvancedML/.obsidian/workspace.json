@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4) Representation invariance.md",
+                "file": "6) Information Geometry & Parameter Manifolds.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4) Representation invariance"
+              "title": "6) Information Geometry & Parameter Manifolds"
             }
           },
           {
@@ -200,13 +200,13 @@
   },
   "active": "e4131eaa687b6424",
   "lastOpenFiles": [
+    "1) Latent Variable Models.md",
     "6) Information Geometry & Parameter Manifolds.md",
+    "3) Diffusion models.md",
+    "2) Flows.md",
     "4) Representation invariance.md",
     "5) Geodesics.md",
-    "2) Flows.md",
     "0) Introduction.md",
-    "1) Latent Variable Models.md",
-    "3) Diffusion models.md",
     "images/ParamSpaceImage.png",
     "images/Overparametrization.png",
     "images/Randommanifold.png",

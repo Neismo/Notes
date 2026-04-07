@@ -61,7 +61,7 @@ $$F(x)=\sum_{m=1}^M\beta_{m}b(x,\gamma_{m}),$$
 where $\gamma_m$ and  $\beta_m$ are learned. With MLE or similar we jointly find them. With boosting, we find one at a time. 
 
 ### Forward Stagewise Additive Modelling
-![[Pasted image 20260312091532.png]]
+![[CART.png]]
 
 # Exercises
 
@@ -89,5 +89,5 @@ $$ \begin{align}
 &= \frac{1-\rho}{B}\sigma^2 + \rho \sigma^2
 \end{align} $$
 ## Relation of above to plots below
-![[Pasted image 20260312101030.png]]
+![[TreeCorrelation.png]]
 This shows that when we do random forests and split on a smaller subset of the data at each split, we reduce the variance of the bagged trees we couldn't get with just bagged trees.

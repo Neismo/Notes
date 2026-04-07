@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "86762e651b88dda2",
+        "id": "76a9c4f300db417a",
         "type": "tabs",
         "children": [
           {
-            "id": "8c586804a856be65",
+            "id": "417e2b939b8e4351",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6) Latent Diffusion Model, CLIP, Text2Image.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "6) Latent Diffusion Model, CLIP, Text2Image"
+              "title": "New tab"
             }
           }
         ]
@@ -156,13 +152,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "6) Latent Diffusion Model, CLIP, Text2Image.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 6) Latent Diffusion Model, CLIP, Text2Image"
+              "title": "Outline"
             }
           }
         ],
@@ -183,13 +178,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "8c586804a856be65",
+  "active": "417e2b939b8e4351",
   "lastOpenFiles": [
+    "6) Latent Diffusion Model, CLIP, Text2Image.md",
+    "7) Self-Supervised Learning.md",
     "5) Diffusion Models w. Guidance.md",
     "images/StableDiffusion.png",
-    "6) Latent Diffusion Model, CLIP, Text2Image.md",
     "images/CLIP.png",
-    "Untitled.md",
     "images/UniversalGuidanceExample.png",
     "images/GuidedStepCounterfactuals.png",
     "images/Counterfactuals.png",

@@ -73,6 +73,8 @@ Since $f$ is smooth, we can locally approximate it by its ==tangent space==. Acc
 
 $$ \mathbf{J}_{f} = \begin{bmatrix} \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_D} \\ \vdots & \ddots & \vdots \\ \frac{\partial f_D}{\partial x_1} & \cdots & \frac{\partial fx_D}{\partial x_D} \end{bmatrix}. $$
 
+$$  $$
+
 ### Embedded Manifolds
 >[!note] **Embedded** manifolds
 >A manifold is considered **embedded** if $f$ is **invertible** on $\mathcal{M}$. This means it locally does not self-intersect or locally change dimensionality. Below is an example of a *not* embedded manifold.
