@@ -11,10 +11,14 @@
             "id": "417e2b939b8e4351",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "8) Multi-modal & Large Vision Models.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "8) Multi-modal & Large Vision Models"
             }
           }
         ]
@@ -152,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "8) Multi-modal & Large Vision Models.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of 8) Multi-modal & Large Vision Models"
             }
           }
         ],
@@ -180,6 +185,8 @@
   },
   "active": "417e2b939b8e4351",
   "lastOpenFiles": [
+    "Untitled.md",
+    "8) Multi-modal & Large Vision Models.md",
     "6) Latent Diffusion Model, CLIP, Text2Image.md",
     "7) Self-Supervised Learning.md",
     "5) Diffusion Models w. Guidance.md",
