@@ -20,8 +20,37 @@
               "icon": "lucide-file",
               "title": "7) Non-Gaussian Likelihoods & Decision Theory"
             }
+          },
+          {
+            "id": "6b1c19c43e1e49f2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "8) Monte Carlo Methods & MCMC.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "8) Monte Carlo Methods & MCMC"
+            }
+          },
+          {
+            "id": "f6ef4ab6cbbc0a1c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "9) Hamiltonian Monte Carlo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "9) Hamiltonian Monte Carlo"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -156,13 +185,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "7) Non-Gaussian Likelihoods & Decision Theory.md",
+                "file": "9) Hamiltonian Monte Carlo.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 7) Non-Gaussian Likelihoods & Decision Theory"
+              "title": "Outline of 9) Hamiltonian Monte Carlo"
             }
           }
         ],
@@ -183,26 +212,28 @@
       "bases:Create new base": false
     }
   },
-  "active": "b00600667040bc5d",
+  "active": "f6ef4ab6cbbc0a1c",
   "lastOpenFiles": [
-    "Figures/Summary7.png",
+    "Figures/Comparison Of Algorithms for MCMC.png",
+    "9) Hamiltonian Monte Carlo.md",
+    "8) Monte Carlo Methods & MCMC.md",
+    "Figures/RejectionSampling.png",
+    "3. Bayesian Linear Regression.md",
     "7) Non-Gaussian Likelihoods & Decision Theory.md",
+    "6) Gaussian Process Classification.md",
+    "Figures/Summary7.png",
     "Figures/UtilityFunctionExample.png",
     "Figures/lectureExercise.png",
     "Figures/DecisionTheoryExample.png",
     "Figures/ConfidenceEntropyExample.png",
     "2. Grid Approximations.md",
-    "3. Bayesian Linear Regression.md",
     "Figures/CommonLikelihoods.png",
     "Figures/NNvsGP.png",
     "5. Gaussian Process Regression.md",
-    "6) Gaussian Process Classification.md",
     "4. Bayesian Classification.md",
     "Figures/ClassificationFeatureExpansion.png",
     "Stuff.md",
     "1. Basics & Beta-Binomial Model.md",
-    "Figures/NewKernelsConstruction.png",
-    "Figures/SquaredExpKernel.png",
     "5. Gaussian Process Regression^marginal.md",
     "^here.md",
     "2..md",
