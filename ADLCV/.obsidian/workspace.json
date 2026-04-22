@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "8) Multi-modal & Large Vision Models"
             }
+          },
+          {
+            "id": "272bfffedfdcf782",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "9) Explainable AI (XAI).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "9) Explainable AI (XAI)"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "8) Multi-modal & Large Vision Models.md",
+                "file": "9) Explainable AI (XAI).md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 8) Multi-modal & Large Vision Models"
+              "title": "Outline of 9) Explainable AI (XAI)"
             }
           }
         ],
@@ -183,10 +198,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "417e2b939b8e4351",
+  "active": "272bfffedfdcf782",
   "lastOpenFiles": [
-    "Untitled.md",
     "8) Multi-modal & Large Vision Models.md",
+    "9) Explainable AI (XAI).md",
     "6) Latent Diffusion Model, CLIP, Text2Image.md",
     "7) Self-Supervised Learning.md",
     "5) Diffusion Models w. Guidance.md",
