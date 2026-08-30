@@ -1,0 +1,41 @@
+
+For exercises:
+- Use SEED or INITIAL STATE for REPRODUCE-ABILITY
+- Do Linear Congruent Generator:
+	- $ax+b \mod M$
+
+- Correct RNG --> uniformly distributed P values
+- $\chi^2$ test: 
+	- $n$ observations, $k$ classes/bins. Class/bin $j$ has probability $p_j$.
+		- $(X_1,\cdots,X_k) = \text{Multinomial}(n,p_1,\cdots,p_k)$.
+		- $X_j \sim \text{Binomial}(n, p_j)$.
+	- Standarize w.r.t mean/stdev, so it is approximately $\chi^2$.
+	- EXERCISE: Standard test statistic:
+		- $T = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}$
+		- Freedom $v = k-1-m$
+		- $m$: number of parameter estimated from data (example is estimating mean/variance in Gaussian from data, then $m=2$).
+		- **ONLY VALID:** at least 5 in each bin/classes
+		- **DECISION**: number of bins? Sizes of bins?
+			- Multiple tests, multiple setups
+- Kolmogorov-Smirnov test:
+	- No groupings needed like $\chi^2$ test. Works for continuous too.
+	- Empirical and test CDF:
+		- $D_n = \sup_x|F_n(x) - F(x)|$.
+		- $F_n(x) = \sum_{i=1}^n\mathbf{1}_{x_i\leq x}$.
+- Visual tests:
+	- look for patterns ($U_i$ vs $U_{i+1}$)
+	- Histograms
+- Run Tests:
+	- Convert sequence into categories and count number of consecutive runs
+		- Above/below threshold?
+		- Increasing/decreasing values?
+		- Positive/negative observations?
+	- Wald-Wolfowitz:
+		- Above/Below Median in $R$ runs. Follows a normal distribution
+		- Large deviations from the expected number is evidence AGAINST *independence*.
+		- Check if number of runs is expected according to the normal distribution.
+	- Up/Down
+		- Test runs of ups and down (consecutively increasing numbers). 
+		- Number of runs with *different* length.
+	- Up And Down
+		- Make equality signs (<, >) between sequence elements. Note down length of same equality signs.

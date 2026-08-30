@@ -20,8 +20,37 @@
               "icon": "lucide-file",
               "title": "8) Subspace Models"
             }
+          },
+          {
+            "id": "a94e200255a1128f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "11) Multiway Models.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "11) Multiway Models"
+            }
+          },
+          {
+            "id": "7f49875bc6196abd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1) Learning from Data.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1) Learning from Data"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -156,13 +185,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "8) Subspace Models.md",
+                "file": "Exam 2026.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 8) Subspace Models"
+              "title": "Outline of Exam 2026"
             }
           }
         ],
@@ -170,7 +199,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 225.5
+    "width": 225.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,10 +213,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "91dcf21b5a7f29cb",
+  "active": "7f49875bc6196abd",
   "lastOpenFiles": [
-    "Figures/SplineApproximation.png",
+    "Exam 2026.md",
+    "11) Multiway Models.md",
+    "Pasted image 20260430083100.png",
+    "Pasted image 20260430083047.png",
+    "Pasted image 20260430082545.png",
+    "Pasted image 20260430082518.png",
     "8) Subspace Models.md",
+    "Figures/SplineApproximation.png",
     "5) Classification & Regression Trees (CART) + Bagging.md",
     "Figures/TreeCorrelation.png",
     "Figures/Scree Plot.png",
@@ -196,13 +232,9 @@
     "Pasted image 20260312090707.png",
     "6) Ensemble Methods.md",
     "1) Learning from Data.md",
-    "Figures/classificationTreeAlgo.png",
     "4) Linear Classifiers.md",
     "3) Sparse Regression & Multiple Testing.md",
     "2) Model Selection.md",
-    "Figures/ModelsComparison.png",
-    "Figures/LassoVsLassoModified.png",
-    "Figures/1-SE.png",
     "Figures",
     "0) Course Stuff.md",
     "Templates/BracedMath.md",

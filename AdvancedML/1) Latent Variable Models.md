@@ -20,7 +20,7 @@ $$p(\mathbf{x})=\int p(\mathbf{x}|\mathbf{z})p(\mathbf{z})$$
  $$\mathbf{x}=\mathbf{Wz}+\mathbf{b}+\epsilon,$$
 where $\epsilon\sim\mathcal{N}(\epsilon|0,\sigma^2\mathbf{I})$. With the properties of Gaussian distributions, we get that:
 $$ p(\mathbf{x}|\mathbf{z})=\mathcal{N}\left( \mathbf{x}|\mathbf{Wz}+\mathbf{b}, \sigma^2\mathbf{I} \right), $$
-which is known as the *pPCA* model.
+which is known as the *p-PCA* model.
 
 The integral then explicitly can be calculated:
 $$\begin{align}

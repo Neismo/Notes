@@ -1,116 +1,106 @@
 {
   "main": {
-    "id": "dcb257ff7dd06a6a",
+    "id": "e1ce232301ddf212",
     "type": "split",
     "children": [
       {
-        "id": "edf96c327430d012",
+        "id": "4fcdba7eada68843",
         "type": "tabs",
         "children": [
           {
-            "id": "e4131eaa687b6424",
+            "id": "9b86ac7bd02aec2c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6) Information Geometry & Parameter Manifolds.md",
+                "file": "Personality Part.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "6) Information Geometry & Parameter Manifolds"
+              "title": "Personality Part"
             }
           },
           {
-            "id": "b04d5a9fa1fe0f53",
+            "id": "8573b3ca88e75f7b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "7) Graph & Node Embeddings.md",
+                "file": "Personality Part.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7) Graph & Node Embeddings"
+              "title": "Personality Part"
             }
           },
           {
-            "id": "46c6426322b5b065",
+            "id": "de5f644dae6932af",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "8) Graph Neural Networks.md",
+                "file": "Stakeholders Part.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "8) Graph Neural Networks"
-            }
-          },
-          {
-            "id": "1ed73dd5024cc142",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6) Information Geometry & Parameter Manifolds.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "6) Information Geometry & Parameter Manifolds"
-            }
-          },
-          {
-            "id": "534a788bb0a0bce8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4) Representation invariance.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "4) Representation invariance"
+              "title": "Stakeholders Part"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
+      },
+      {
+        "id": "3da6c852d71a0438",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9a70830330927482",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "5933c0b990986c39",
+    "id": "9a7490fad69563da",
     "type": "split",
     "children": [
       {
-        "id": "81a2f0b7f3c23405",
+        "id": "83c4b87bae4281ec",
         "type": "tabs",
         "children": [
           {
-            "id": "6b459bf417bb90f1",
+            "id": "eb3fa755ccb64bb9",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
           },
           {
-            "id": "cb57bf4ef080ea25",
+            "id": "163e9e463a9bcef8",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "Jacobian",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -122,7 +112,7 @@
             }
           },
           {
-            "id": "3a8e2f0318941cf2",
+            "id": "34cee7d81d3ab80d",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -135,25 +125,25 @@
       }
     ],
     "direction": "horizontal",
-    "width": 217.50043487548828
+    "width": 300
   },
   "right": {
-    "id": "d628f9012238fd53",
+    "id": "0ba5fc7ec1a7bab8",
     "type": "split",
     "children": [
       {
-        "id": "642431d96ff0a9dd",
+        "id": "aaf3491e07c7b702",
         "type": "tabs",
         "children": [
           {
-            "id": "a97d616e3643a254",
+            "id": "499826f04d1b5edb",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Latent Variable Models.md",
+                "file": "Personality Part.md",
                 "collapseAll": false,
-                "extraContext": true,
+                "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -161,25 +151,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Latent Variable Models"
+              "title": "Backlinks for Personality Part"
             }
           },
           {
-            "id": "e6761ef8e2accb6b",
+            "id": "0dc2064cc4e94c3f",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Latent Variable Models.md",
+                "file": "Personality Part.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Latent Variable Models"
+              "title": "Outgoing links from Personality Part"
             }
           },
           {
-            "id": "fac077837fc4821b",
+            "id": "c379c5dfe6546ab7",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -194,7 +184,7 @@
             }
           },
           {
-            "id": "5cfab0e0bd1c60e8",
+            "id": "68e973c65daa41b5",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -208,26 +198,26 @@
             }
           },
           {
-            "id": "09f3240e66e1cc90",
+            "id": "0dd7485989e40a75",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "6) Information Geometry & Parameter Manifolds.md",
+                "file": "Personality Part.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 6) Information Geometry & Parameter Manifolds"
+              "title": "Outline of Personality Part"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -240,35 +230,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "1ed73dd5024cc142",
+  "active": "de5f644dae6932af",
   "lastOpenFiles": [
-    "4) Representation invariance.md",
-    "5) Geodesics.md",
-    "3) Diffusion models.md",
-    "2) Flows.md",
-    "9).md",
-    "7) Graph & Node Embeddings.md",
-    "8) Graph Neural Networks.md",
-    "6) Information Geometry & Parameter Manifolds.md",
-    "1) Latent Variable Models.md",
-    "images/ExerciseGraph.png",
-    "images/MessagePassing.png",
-    "images/DecodersAndLossFunctionsGraphs.png",
-    "images/MarriageTree.png",
-    "0) Introduction.md",
-    "images/ParamSpaceImage.png",
-    "images/Overparametrization.png",
-    "images/Randommanifold.png",
-    "images/NoisyManifold.png",
-    "images/GaussianDistribtutionParameter.png",
-    "6)",
-    "images/AddtionSubtractionRiemannian.png",
-    "Templates/Angles.md",
-    "Templates/FitNorm.md",
-    "Templates/BracedMath.md",
-    "Templates/NormalPDF.md",
-    "Templates/MathAlign.md",
-    "Templates",
-    "images"
+    "Personality Part.md",
+    "Stakeholders Part.md"
   ]
 }
